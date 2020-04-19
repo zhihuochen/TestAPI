@@ -1,10 +1,8 @@
 import requests
 import json
-#首页卡片
 
-def cardInfo():
-    url3='https://zhihuotech.com/devj/applet/cardInfo'
-    header1={
+url='https://zhihuotech.com/devj/applet/cardInfo'
+header_dict={
         'charset': 'utf-8',
         'Accept-Encoding': 'gzip',
         'referer': 'https://servicewechat.com/wx358a536fed195cc8/0/page-frame.html',
@@ -14,16 +12,18 @@ def cardInfo():
         'Host': 'zhihuotech.com',
         'Connection': 'Keep-Alive'
     }
-    dates1={'class_id':'31410007232205208',
+params={'class_id':'31410007232205208',
            'role':'0',
            'student_id':'',
            'union_id':'oyu3N0X-jvsSabhqSPhCQd42yZ-A',
            'page_num':'1',
            'page_size':'10'
     }
-    a = requests.post(url=url3,headers=header1,data=dates1,verify=True)
-    print(a.text)
-    print(a.url)
-    print(a.status_code)
-    print(a.json())
-cardInfo()
+r = requests.post(url=url,headers=header_dict,data=params,verify=True)
+print(r.url)#传递url参数
+print(r.text)#想要内容
+print(r.status_code)#状态码
+print(r.json())#json响应内容
+print(r.headers)#响应头
+
+
