@@ -25,4 +25,5 @@ def cardInfo():
     print(a.text)
     print(a.url)
     print(a.status_code)
+    print(a.json())
 cardInfo()
